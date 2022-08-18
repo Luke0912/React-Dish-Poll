@@ -11,6 +11,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -82,12 +83,15 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+            <div className={styles.titleMobile}>
               {auth && <Link to={'/Rated Dishes'}>Rated Dish</Link>}
+              <br />
               {auth && (
                 <Link to={'/'} onClick={logoutHandler}>
                   Logout
                 </Link>
               )}
+            </div>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -110,12 +114,15 @@ const Navbar = () => {
             <h5>Dish Poll</h5>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {auth && <Link to={'/Rated Dishes'}>Rated Dish</Link>}
-            {auth && (
-              <Link to={'/'} onClick={logoutHandler}>
-                Logout
-              </Link>
-            )}
+            <div className={styles.title}>
+              {auth && <Link to={'/Rated Dishes'}>Rated Dish</Link>}
+              <br />
+              {auth && (
+                <Link to={'/'} onClick={logoutHandler}>
+                  Logout
+                </Link>
+              )}
+            </div>
           </Box>
         </Toolbar>
       </Container>

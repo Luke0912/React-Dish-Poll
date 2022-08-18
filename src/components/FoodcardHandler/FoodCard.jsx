@@ -10,9 +10,8 @@ export const FoodCard = ({ data }) => {
   const renderList = data.map((dish) => {
     const { id, dishName, description, image } = dish;
     return (
-      <>
-        <div className={styles.mainDiv}>
-          <Card className={styles.cardDiv} key={id}>
+        <div className={styles.mainDiv} key={id}>
+          <Card className={styles.cardDiv}>
             <CardMedia
               component='img'
               height='140'
@@ -33,7 +32,6 @@ export const FoodCard = ({ data }) => {
             </CardActions>
           </Card>
         </div>
-      </>
     );
   });
   return <>{renderList}</>;

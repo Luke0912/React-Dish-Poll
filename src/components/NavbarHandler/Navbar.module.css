@@ -1,0 +1,27 @@
+.title {
+  width: 20%;
+  margin: auto;
+  height: 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.titleMobile {
+  width: 100%;
+  margin: auto;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.titleMobile > a {
+  color: black;
+  text-decoration: none;
+  font-size: medium;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.title > a {
+  color: black;
+  text-decoration: none;
+  font-size: medium;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
