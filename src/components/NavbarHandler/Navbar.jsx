@@ -83,15 +83,15 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-            <div className={styles.titleMobile}>
-              {auth && <Link to={'/Rated Dishes'}>Rated Dish</Link>}
-              <br />
-              {auth && (
-                <Link to={'/'} onClick={logoutHandler}>
-                  Logout
-                </Link>
-              )}
-            </div>
+              <div className={styles.titleMobile}>
+                {auth && <Link to={'/Rated Dishes'}>Rated Dish</Link>}
+                <br />
+                {auth && (
+                  <Link to={'/'} onClick={logoutHandler}>
+                    Logout
+                  </Link>
+                )}
+              </div>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />

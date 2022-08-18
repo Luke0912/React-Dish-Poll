@@ -10,28 +10,28 @@ export const FoodCard = ({ data }) => {
   const renderList = data.map((dish) => {
     const { id, dishName, description, image } = dish;
     return (
-        <div className={styles.mainDiv} key={id}>
-          <Card className={styles.cardDiv}>
-            <CardMedia
-              component='img'
-              height='140'
-              image={image}
-              alt='Dish Name'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                {dishName}
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                {description}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size='small'>Share</Button>
-              <Button size='small'>Learn More</Button>
-            </CardActions>
-          </Card>
-        </div>
+      <div className={styles.mainDiv} key={id}>
+        <Card className={styles.cardDiv}>
+          <CardMedia
+            component='img'
+            height='140'
+            image={image}
+            alt='Dish Name'
+          />
+          <CardContent>
+            <Typography gutterBottom variant='h5' component='div'>
+              {dishName}
+            </Typography>
+            <Typography variant='body2' color='text.secondary'>
+              {description}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size='small'>Share</Button>
+            <Button size='small'>Learn More</Button>
+          </CardActions>
+        </Card>
+      </div>
     );
   });
   return <>{renderList}</>;
