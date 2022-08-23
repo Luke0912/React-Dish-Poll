@@ -207,5 +207,40 @@
       "description": "Fresh parsley, Italian sausage, shallots, garlic, sun-dried tomatoes and mozzarella cheese in an all-butter crust. With a side of mixed fruits.",
       "image": "https://loremflickr.com/300/300/food"
     }
+  ],
+  "ratedDish": [
+    {
+      "dish": {
+        "id": 1,
+        "dishName": "Lasagne",
+        "description": "Breaded fried chicken with waffles, and a side of maple syrup.",
+        "image": "https://loremflickr.com/300/300/food"
+      },
+      "points": 30,
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "dish": {
+        "id": 2,
+        "dishName": "Pho",
+        "description": "Three eggs with cilantro, tomatoes, onions, avocados and melted Emmental cheese. With a side of roasted potatoes, and your choice of toast or croissant.",
+        "image": "https://loremflickr.com/300/300/food"
+      },
+      "points": 20,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "dish": {
+        "id": 3,
+        "dishName": "Stinky Tofu",
+        "description": "Two buttermilk waffles, topped with whipped cream and maple syrup, a side of two eggs served any style, and your choice of smoked bacon or smoked ham.",
+        "image": "https://loremflickr.com/300/300/food"
+      },
+      "points": 10,
+      "userId": 1,
+      "id": 3
+    }
   ]
 }

@@ -4,16 +4,24 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [auth, setAuth] = useState(false);
-  const [id, setId] = useState(false);
+  const [userId, setUserId] = useState(false);
+  const [ratedDish, setRatedDish] = useState([]);
+  console.log(ratedDish);
 
   const handleAuth = (s) => {
     setAuth(s);
   };
-  const handleState = (id) => {
-    setId(id);
+  const handleId = (id) => {
+    setUserId(id);
+  };
+  const userRatedDish = (obj) => {
+    let curr = [...ratedDish, obj];
+    setRatedDish(curr);
   };
   return (
-    <AuthContext.Provider value={{ auth, handleAuth, id, handleState }}>
+    <AuthContext.Provider
+      value={{ auth, handleAuth, userId, handleId, ratedDish, userRatedDish }}
+    >
       {children}
     </AuthContext.Provider>
   );

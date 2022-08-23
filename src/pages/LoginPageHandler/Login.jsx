@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const { handleAuth } = useContext(AuthContext);
+  const { handleId } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [details, setDetails] = useState({
@@ -49,6 +50,7 @@ export const Login = () => {
         throw new Error('Unable to login. Please Check the Login Credentials');
       }
       handleAuth(true);
+      handleId(user.id);
       navigate('/home');
     } catch (error) {
       alert(error.message);

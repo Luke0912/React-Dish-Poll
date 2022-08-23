@@ -4,5 +4,11 @@
 }
 .cardDiv {
   width: 340px;
-  height: 350px;
+  height: 370px;
+}
+.CardActions {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
 }
