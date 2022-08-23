@@ -20,7 +20,14 @@ export const AuthContextProvider = ({ children }) => {
   };
   return (
     <AuthContext.Provider
-      value={{ auth, handleAuth, userId, handleId, ratedDish, userRatedDish }}
+      value={{
+        auth,
+        handleAuth,
+        userId,
+        handleId,
+        ratedDish,
+        userRatedDish,
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -15,9 +15,10 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { auth, handleAuth } = useContext(AuthContext);
+  const { auth, handleAuth, loggedIn } = useContext(AuthContext);
 
   const logoutHandler = () => {
+    loggedIn.length = 0;
     handleAuth(false);
     navigate('/');
     return;

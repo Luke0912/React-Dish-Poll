@@ -1,22 +1,20 @@
 import { useContext, useState } from 'react';
 
 import { AuthContext } from '../../contexts/AuthContext';
-import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import RankSelect from '../RankSelectHandler/RankSelect';
+import RateButton from '../RateButtonHandler/RateButton';
 import Typography from '@mui/material/Typography';
 import styles from './FoodCard.module.css';
 
-// import axios from 'axios';
-// import { configuration } from '../../configs';
-
 export const FoodCard = ({ data }) => {
-  const { userId, userRatedDish } = useContext(AuthContext);
-
+  const { userId, userRatedDish, ratedDish} =
+    useContext(AuthContext);
   const [rank, setRank] = useState('');
+  const loggedUser = ratedDish.map((e) => e.userId);
 
   const renderList = data.map((dish) => {
     const { id, dishName, description, image } = dish;
@@ -25,9 +23,17 @@ export const FoodCard = ({ data }) => {
       setRank(payload);
     };
 
-    const handleAdd = () => {
+    const bToCard = () => {
+      if (loggedUser.length >= 3) {
+        return alert('cannot add more than 3 dishes');
+      }
+      if (rank === '') {
+        return alert('Please select rank to Poll');
+      }
       userRatedDish({ points: rank, userId: userId, dish: dish });
+      setRank('');
     };
+
     return (
       <div className={styles.mainDiv} key={id}>
         <Card className={styles.cardDiv}>
@@ -47,9 +53,7 @@ export const FoodCard = ({ data }) => {
           </CardContent>
           <CardActions className={styles.CardActions}>
             <RankSelect toCard={toCard}></RankSelect>
-            <Button size='small' variant='contained' onClick={handleAdd}>
-              Rate this Dish
-            </Button>
+            <RateButton bToCard={bToCard}></RateButton>
           </CardActions>
         </Card>
       </div>
