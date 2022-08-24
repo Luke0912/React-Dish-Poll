@@ -1,0 +1,10 @@
+.display {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+.displayLogged {
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(4, 1fr);
+}

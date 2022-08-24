@@ -1,11 +1,14 @@
-import React from 'react'
+import styles from './RatedDish.module.css';
 
 const RatedDish = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <div className={styles.display}>
+        <h5>Polled Dishes</h5>
+        <div className={styles.displayLogged}></div>
+      </div>
+    </>
+  );
+};
 
-export default RatedDish
+export default RatedDish;

@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router';
 import HomePage from './pages/HomePageHandler/HomePage';
 import { Login } from './pages/LoginPageHandler/Login';
 import { ProtectedRoute } from './utils/ProtectedRoute';
+import RatedDish from './pages/RatingPageHAndler/RatedDish';
 import ResponsiveAppBar from './components/NavbarHandler/Navbar';
 
 function App() {
@@ -18,6 +19,14 @@ function App() {
           element={
             <ProtectedRoute>
               <HomePage />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path='/PoleResult'
+          element={
+            <ProtectedRoute>
+              <RatedDish />
             </ProtectedRoute>
           }
         ></Route>

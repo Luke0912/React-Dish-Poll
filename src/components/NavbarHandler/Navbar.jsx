@@ -85,7 +85,7 @@ const Navbar = () => {
               }}
             >
               <div className={styles.titleMobile}>
-                {auth && <Link to={'/Rated Dishes'}>Rated Dish</Link>}
+                {auth && <Link to={'/PoleResult'}>Rated Dish</Link>}
                 <br />
                 {auth && (
                   <Link to={'/'} onClick={logoutHandler}>
@@ -116,7 +116,7 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <div className={styles.title}>
-              {auth && <Link to={'/Pole Result'}>Rated Dish</Link>}
+              {auth && <Link to={'/PoleResult'}>Rated Dish</Link>}
               <br />
               {auth && (
                 <Link to={'/'} onClick={logoutHandler}>
