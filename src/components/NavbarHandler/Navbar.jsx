@@ -15,10 +15,21 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { auth, handleAuth, loggedIn } = useContext(AuthContext);
+  const { auth, handleAuth, ratedDish, savedUserData } =
+    useContext(AuthContext);
+
+  const [button, setButton] = useState(false);
+
+  const handleToggle = () => {
+    if (button) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
 
   const logoutHandler = () => {
-    loggedIn.length = 0;
+    savedUserData(ratedDish);
     handleAuth(false);
     navigate('/');
     return;
@@ -85,7 +96,14 @@ const Navbar = () => {
               }}
             >
               <div className={styles.titleMobile}>
-                {auth && <Link to={'/PoleResult'}>Rated Dish</Link>}
+                {auth && (
+                  <Link
+                    to={button ? '/PoleResult' : '/home'}
+                    onClick={handleToggle}
+                  >
+                    {button ? 'Polled Dishes' : 'Home'}
+                  </Link>
+                )}
                 <br />
                 {auth && (
                   <Link to={'/'} onClick={logoutHandler}>
@@ -116,7 +134,14 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <div className={styles.title}>
-              {auth && <Link to={'/PoleResult'}>Rated Dish</Link>}
+              {auth && (
+                <Link
+                  to={button ? '/PoleResult' : '/home'}
+                  onClick={handleToggle}
+                >
+                  {button ? 'Polled Dishes' : 'Home'}
+                </Link>
+              )}
               <br />
               {auth && (
                 <Link to={'/'} onClick={logoutHandler}>

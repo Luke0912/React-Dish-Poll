@@ -11,10 +11,10 @@ import Typography from '@mui/material/Typography';
 import styles from './FoodCard.module.css';
 
 export const FoodCard = ({ data }) => {
-  const { userId, userRatedDish, ratedDish} =
-    useContext(AuthContext);
+  const { userId, userRatedDish, ratedDish } = useContext(AuthContext);
   const [rank, setRank] = useState('');
   const loggedUser = ratedDish.map((e) => e.userId);
+  console.log('ratedLength:', loggedUser);
 
   const renderList = data.map((dish) => {
     const { id, dishName, description, image } = dish;

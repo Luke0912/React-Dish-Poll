@@ -12,8 +12,7 @@ import styles from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
-  const { handleAuth } = useContext(AuthContext);
-  const { handleId } = useContext(AuthContext);
+  let { handleAuth, handleId, ratedDish } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [details, setDetails] = useState({
@@ -52,6 +51,7 @@ export const Login = () => {
       handleAuth(true);
       handleId(user.id);
       navigate('/home');
+      ratedDish.length = 0;
     } catch (error) {
       alert(error.message);
     }
