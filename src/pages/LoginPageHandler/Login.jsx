@@ -51,7 +51,7 @@ export const Login = () => {
       handleAuth(true);
       handleId(user.id);
       navigate('/home');
-      ratedDish.length = 0;
+      ratedDish.splice(0,ratedDish.length)
     } catch (error) {
       alert(error.message);
     }

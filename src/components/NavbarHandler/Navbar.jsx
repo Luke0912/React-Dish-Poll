@@ -15,21 +15,24 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { auth, handleAuth, ratedDish, savedUserData } =
-    useContext(AuthContext);
+  const { auth, handleAuth } = useContext(AuthContext);
 
   const [button, setButton] = useState(false);
 
   const handleToggle = () => {
     if (button) {
       setButton(false);
-    } else {
+    } else if (!button) {
       setButton(true);
     }
   };
 
   const logoutHandler = () => {
-    savedUserData(ratedDish);
+    if (button) {
+      setButton(false);
+    } else if (!button) {
+      setButton(true);
+    }
     handleAuth(false);
     navigate('/');
     return;
@@ -98,10 +101,10 @@ const Navbar = () => {
               <div className={styles.titleMobile}>
                 {auth && (
                   <Link
-                    to={button ? '/PoleResult' : '/home'}
+                    to={button ? '/Home' : '/PoleResult'}
                     onClick={handleToggle}
                   >
-                    {button ? 'Polled Dishes' : 'Home'}
+                    {button ? 'Home' : 'Result Page'}
                   </Link>
                 )}
                 <br />
@@ -136,10 +139,10 @@ const Navbar = () => {
             <div className={styles.title}>
               {auth && (
                 <Link
-                  to={button ? '/PoleResult' : '/home'}
+                  to={button ? '/Home' : '/PoleResult'}
                   onClick={handleToggle}
                 >
-                  {button ? 'Polled Dishes' : 'Home'}
+                  {button ? 'Home' : 'Result Page'}
                 </Link>
               )}
               <br />

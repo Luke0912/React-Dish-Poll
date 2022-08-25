@@ -7,8 +7,6 @@ export const AuthContextProvider = ({ children }) => {
   const [userId, setUserId] = useState(false);
   const [ratedDish, setRatedDish] = useState([]);
   const [savedData, setSavedData] = useState([]);
-  console.log('rated:', ratedDish);
-  console.log('saved:', savedData);
 
   const handleAuth = (s) => {
     setAuth(s);

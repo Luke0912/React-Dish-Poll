@@ -8,35 +8,35 @@ import CardMedia from '@mui/material/CardMedia';
 import RankSelect from '../RankSelectHandler/RankSelect';
 import RateButton from '../RateButtonHandler/RateButton';
 import Typography from '@mui/material/Typography';
-import styles from './FoodCard.module.css';
+import styles from './ResultCard.module.css';
 
-export const FoodCard = ({ data }) => {
-  const { userId, userRatedDish, ratedDish,savedUserData } = useContext(AuthContext);
-  const [rank, setRank] = useState('');
-  const loggedUser = ratedDish.map((e) => e.userId);
+const ResultCard = () => {
+  const { userId, savedData } = useContext(AuthContext);
+  let [rank, setRank] = useState('');
 
-
-  const renderList = data.map((dish) => {
-    const { id, dishName, description, image } = dish;
+  const renderList = savedData.map((dish) => {
+    const { id, dishName, description, image } = dish.dish;
+    let { points, uId } = dish;
 
     const toCard = (payload) => {
       setRank(payload);
     };
 
     const bToCard = () => {
-      if (loggedUser.length >= 3) {
-        return alert('cannot add more than 3 dishes');
+      if (uId !== userId) {
+        return alert('User Can Only Edit Their Dishes');
       }
       if (rank === '') {
         return alert('Please select rank to Poll');
       }
-      userRatedDish({ points: rank, uId: userId, dish: dish });
-      savedUserData({ points: rank, uId: userId, dish: dish });
-      setRank('');
+      setRank('')
+      points = rank;
     };
-
     return (
-      <div className={styles.mainDiv} key={id}>
+      <div
+        className={`${styles.mainDiv} ${uId === userId ? styles.active : ''}`}
+        key={id}
+      >
         <Card className={styles.cardDiv}>
           <CardMedia
             component='img'
@@ -51,6 +51,8 @@ export const FoodCard = ({ data }) => {
             <Typography variant='body2' color='text.secondary'>
               {description}
             </Typography>
+            <h3>Points:{points}</h3>
+            <h4>User:{uId}</h4>
           </CardContent>
           <CardActions className={styles.CardActions}>
             <RankSelect toCard={toCard}></RankSelect>
@@ -63,4 +65,4 @@ export const FoodCard = ({ data }) => {
   return <>{renderList}</>;
 };
 
-export default FoodCard;
+export default ResultCard;

@@ -1,0 +1,17 @@
+.mainDiv > .cardDiv {
+  margin: auto;
+  width: 85%;
+}
+.cardDiv {
+  width: 490px;
+  height: 420px;
+}
+.CardActions {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.active {
+  background-color:rgb(222, 176, 176);
+}

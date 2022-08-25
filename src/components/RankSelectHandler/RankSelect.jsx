@@ -13,14 +13,14 @@ export const RankSelect = ({ toCard }) => {
     toCard(event.target.value);
   };
   return (
-    <Box sx={{ minWidth: 120 }}>
+    <Box sx={{ minWidth: 130 }}>
       <FormControl fullWidth>
-        <InputLabel id='demo-simple-select-label'>Rank Dish</InputLabel>
+        <InputLabel id='demo-simple-select-label'>Select Rank</InputLabel>
         <Select
           labelId='demo-simple-select-label'
           id='demo-simple-select'
           value={points}
-          label='Rank Dish'
+          label='Select Rank'
           onChange={handleChange}
         >
           <MenuItem value={30}>Rank 1</MenuItem>
